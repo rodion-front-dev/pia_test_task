@@ -6,7 +6,7 @@ import axios, { AxiosError, AxiosRequestConfig, CancelTokenSource } from 'axios'
 import { apiInstance } from '../api-instance';
 
 const activeRequests: Record<string, CancelTokenSource> = {};
-const responseCache: Record<string, unknown> = {};
+const responseCache = new Map<string, unknown>();
 
 interface ApiRequestOptions {
   id?: string;
@@ -51,9 +51,9 @@ export function useQuery<T>(
   const fetchData = async (attempt = 0): Promise<void> => {
     setResult((prev) => ({ ...prev, isLoading: true, isError: false, error: null }));
 
-    if (cache && responseCache[cacheKey]) {
+    if (cache && responseCache.has(cacheKey)) {
       setResult({
-        data: responseCache[cacheKey] as T,
+        data: responseCache.get(cacheKey) as T,
         isLoading: false,
         isError: false,
         error: null,
@@ -81,10 +81,10 @@ export function useQuery<T>(
       });
 
       if (cache) {
-        responseCache[cacheKey] = response.data;
+        responseCache.set(cacheKey, response.data);
         if (cacheStaleTime > 0) {
           setTimeout(() => {
-            delete responseCache[cacheKey];
+            responseCache.delete(cacheKey);
           }, cacheStaleTime);
         }
       }
@@ -122,10 +122,7 @@ export function useQuery<T>(
   };
 
   useEffect(() => {
-    if (!enabled) {
-      return;
-    }
-
+    if (!enabled) return;
     fetchData();
   }, [url, enabled]);
 
@@ -137,8 +134,8 @@ export function useQuery<T>(
 
 export function clearCache(key?: string) {
   if (key) {
-    delete responseCache[key];
+    responseCache.delete(key);
   } else {
-    Object.keys(responseCache).forEach((k) => delete responseCache[k]);
+    responseCache.clear();
   }
 }

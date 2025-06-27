@@ -1,69 +1,59 @@
-# React + TypeScript + Vite
+# Pia Test Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Инструкция по запуску проекта
 
-Currently, two official plugins are available:
+1. ### Установка Node Js
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   Если у вас не установлен Node Js на ПК, то нужно установить
 
-## Expanding the ESLint configuration
+   Устанавливаем не ниже v22.14.0 LTS по этой ссылке.
+   Запускаем установщик и следуем инструкциям
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+   https://nodejs.org/en/download
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+   После установки проверяем версии в командной строке/терминале:
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+   ```bash
+   node -v
+   npm -v
+   # Должны отобразиться версии установленных программ.
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. ### Клонируем репозиторий
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+   Откройте терминал/командную строку в папке, где хотите разместить проект
 
-```js
-// eslint.config.mjs
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   Выполните команду:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```bash
+   git clone https://github.com/rodion-front-dev/pia_test_task.git
+   # ИЛИ
+   git clone [SSH репозитория]
+   ```
+
+   Переходим в папку проекта:
+
+   ```bash
+   cd pia_test_task
+   ```
+
+3. Установка зависимостей
+   В корневой папке проекта выполните:
+
+   ```bash
+   npm install
+   # Эта команда установит все зависимости, указанные в файле package.json.
+   ```
+
+4. Запуск проекта
+
+   ```bash
+   npm run dev
+   ```
+
+5. Открытие в браузере
+   После успешного запуска проект будет доступен по адресу:
+
+   ```bash
+   http://localhost:5173
+   ```
