@@ -1,0 +1,35 @@
+.additionalInfoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.userDetailsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  margin: 0 1rem;
+
+  background-color: #3f3f3f;
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+
+  &MainInfo {
+    @extend .additionalInfoBlock;
+  }
+
+  &Address {
+    @extend .additionalInfoBlock;
+  }
+
+  &Company {
+    @extend .additionalInfoBlock;
+  }
+}

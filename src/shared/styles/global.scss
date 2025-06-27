@@ -1,0 +1,23 @@
+@use 'normalize';
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #121212;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: white;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+}

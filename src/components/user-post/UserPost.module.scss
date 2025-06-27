@@ -1,0 +1,19 @@
+.userPost {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  padding: 0.75rem 1.25rem;
+
+  background-color: #3f3f3f;
+  border-radius: 12px;
+
+  &Title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  &Body {
+    font-size: 1rem;
+  }
+}

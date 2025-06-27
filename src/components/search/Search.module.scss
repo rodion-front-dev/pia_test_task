@@ -1,0 +1,19 @@
+.search {
+  display: flex;
+  padding: 0.375rem 1rem;
+  margin: 0 1rem;
+
+  max-width: 300px;
+
+  background-color: #fff;
+  border-radius: 8px;
+
+  &Input {
+
+    background: none;
+    border: none;
+    color: black;
+
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,13 @@
+.userPosts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  margin: 0 1rem;
+
+  &List {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
